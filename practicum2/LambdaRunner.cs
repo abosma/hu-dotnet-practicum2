@@ -66,7 +66,11 @@ namespace practicum2
             output.AppendFormat("InBetween({0},{1},{2}) = {3}\n", num1, num2, num3, inBetween(num1, num2, num3));
 
             Person p = new Person { Name = "Jan" };
-            Methods.ResetName(p);
+
+            Action<Person> resetName = x => x.Name = null;
+
+            resetName(p);
+
             output.AppendFormat("ResetName, daarna (Name == null) = {0}\n", p.Name == null);
 
             return output.ToString();
